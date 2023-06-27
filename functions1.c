@@ -79,7 +79,7 @@ int prnt_octal(va_list types, char buffer[], int flags, int width,
  * Return: return the number in hexadecimal
  */
 
-int prnt_hexcadec(va_list types, char buffer[], int flags, int width,
+int prnt_hexadec(va_list types, char buffer[], int flags, int width,
 		int precision, int size)
 {
 	return (prnt_hexa(types, "0123456789abcdef", buffer, flags, 'x', width,
