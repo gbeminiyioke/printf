@@ -45,11 +45,11 @@ int prnt_unsigned(va_list types, char buffer[], int flags, int width,
 int prnt_octal(va_list types, char buffer[], int flags, int width,
 		int precision, int size)
 {
-	unsigned long int c;
+	unsigned long int c, a;
 	int i;
 
 	c = va_arg(types, unsigned long int);
-	unsigned long int a = c;
+	a = c;
 
 	i = BUFFER_SIZE - 2;
 	NOT_USED(width);
@@ -118,7 +118,7 @@ int prnt_hexadec_upr(va_list types, char buffer[], int flags, int width,
  * Return: returns the upper or lower case of hexa
  */
 
-int prnt_hexa(va_list types, char map_to[], char buffer, int flags,
+int prnt_hexa(va_list types, char map_to[], char buffer[], int flags,
 		char flag_ch, int width, int precision, int size)
 {
 	unsigned long int c, x;
@@ -134,7 +134,7 @@ int prnt_hexa(va_list types, char map_to[], char buffer, int flags,
 	buffer[BUFFER_SIZE - 1] = '\0';
 	while (c > 0)
 	{
-		buffer[i--] = mao_to[c % 16];
+		buffer[i--] = map_to[c % 16];
 		c /= 16;
 	}
 	if (flags & FLAG_HASH && x != 0)

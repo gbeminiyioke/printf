@@ -20,7 +20,7 @@ int prnt_pntr(va_list types, char buffer[], int flags, int width,
 	void *ads = va_arg(types, void *);
 
 	c = 0;
-	pad = '';
+	pad = ' ';
 	i = BUFFER_SIZE - 2;
 	len = 2;
 	pad_start = 1;
@@ -43,7 +43,7 @@ int prnt_pntr(va_list types, char buffer[], int flags, int width,
 	if (flags & FLAG_PLUS)
 		c = '+', len++;
 	else if (flags & FLAG_SPACE)
-		c = '', len++;
+		c = ' ', len++;
 	i++;
 	return (write_pointer(buffer, i, len, width, flags,
 				pad, c, pad_start));
@@ -145,12 +145,14 @@ int print_rot13string(va_list types, char buffer[], int flags, int width,
 	char str_in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char str_out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	unsigned int i, j;
+	int cnt;
 
 	NOT_USED(buffer);
 	NOT_USED(flags);
 	NOT_USED(width);
 	NOT_USED(precision);
 	NOT_USED(size);
+	cnt = 0;
 	s = va_arg(types, char *);
 	if (s == NULL)
 		s = "(AHYY)";

@@ -38,8 +38,8 @@ int prnt_hexadec(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int prnt_hexadec_upr(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
-int prnt_hexa(va_list types, char map_to[],
-		char buffer[], int flags, char flag_ch, int width, int precision, int size);
+int prnt_hexa(va_list types, char map_to[], char buffer[], int flags,
+		char flag_ch, int width, int precision, int size);
 int prnt_non_printable(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int prnt_pntr(va_list types, char buffer[],

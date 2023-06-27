@@ -27,7 +27,7 @@ int handle_write_char(char c, char buffer[], int flags, int width,
 	{
 		buffer[BUFFER_SIZE - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
-			buffer[BUFFER_SIZE - i - 2] = padd;
+			buffer[BUFFER_SIZE - i - 2] = pad;
 		if (flags & FLAG_MINUS)
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFFER_SIZE - i - 1], width - 1));
@@ -230,5 +230,5 @@ int write_unsgnd(int negative_num, int ind, char buffer[], int flags,
 			return (write(1, &buffer[0], i) + write(1, &buffer[ind], len));
 		}
 	}
-	return (write(1, &buffer[ind], length));
+	return (write(1, &buffer[ind], len));
 }

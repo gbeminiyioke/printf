@@ -20,7 +20,7 @@ void print_buff(char buff[], int *buff_index)
  * Return: the number of characters printed
  */
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	int i, char_printed, its_printed, width, precision, size, b_index, flag;
 	char buffer[BUFFER_SIZE];
@@ -44,12 +44,12 @@ int _printf(const char *format, ...);
 		else
 		{
 			print_buff(buffer, &b_index);
-			flags = get_flags(format, &i);
+			flag = get_flags(format, &i);
 			size = get_size(format, &i);
 			width = get_width(format, &i, pq);
 			precision = get_precision(format, &i, pq);
 			i++;
-			its_printed = handle_print(format, &i, pq, buffer, flags,
+			its_printed = handle_print(format, &i, pq, buffer, flag,
 					width, precision, size);
 			if (its_printed == -1)
 				return (-1);

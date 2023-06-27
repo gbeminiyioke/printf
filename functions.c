@@ -16,7 +16,7 @@ int prnt_char(va_list types, char buffer[], int flags, int width,
 {
 	char c;
 
-	va_arg(types, int);
+	c = va_arg(types, int);
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
 
@@ -42,7 +42,7 @@ int prnt_str(va_list types, char buffer[], int flags, int width,
 	NOT_USED(width);
 	NOT_USED(precision);
 	NOT_USED(size);
-	va_arg(types, char *);
+	s = va_arg(types, char *);
 	if (s == NULL)
 	{
 		s = "(null)";
@@ -178,4 +178,5 @@ int prnt_binary(va_list types, char buffer[], int flags, int width,
 			tot_c++;
 		}
 	}
-	return (tot_c);
+return (tot_c);
+}
