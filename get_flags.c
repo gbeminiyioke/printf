@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_flags: Get the flags for formatting arguments.
+ * get_flags - Get the flags for formatting arguments.
  * @format: Format string
  * @i: pointer to parameter
  * Return: Flags

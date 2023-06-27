@@ -1,13 +1,13 @@
  #include "main.h"
 
 /**
- * get_precision – this function gets the printing precision
- * @format: Format to print the arguments
- * @i: List of arguments to be printed.
- * @list: list of arguments.
- *
+ * get_precision - this function gets the printing precision
+ * @format: format to print the arguments
+ * @i: list of arguments to print
+ * @list: list of arguments
  * Return: accuracy
  */
+
 int get_precision(const char *format, int *i, va_list list)
 {
 int j, accuracy;
@@ -28,7 +28,6 @@ else if (format[j] == '*')
 {
 j++;
 accuracy = va_arg(list, int);
-
 break;
 }
 	else
