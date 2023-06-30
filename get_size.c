@@ -1,25 +1,25 @@
 #include "main.h"
 
 /**
- * get_size - this function gets the size to cast the argument
- * @format: format to print the argument
- * @i: list of arguments
- * Return: accuracy
+ * get_size - Calculates the size to cast the argument
+ * @format: Formatted string in which to print the arguments
+ * @i: List of arguments to be printed.
+ * Return: Precision.
  */
 
 int get_size(const char *format, int *i)
 {
-	int j, sz;
+	int xi, sz;
 
-	j = *i + 1;
-	sz = 0, j = *i;
-	if (format[j] == 'l')
-		sz = SZ_LNG;
-	else if (format[j] == 'h')
-		sz = SZ_SHRT;
+	xi = *i + 1;
+	sz = 0;
+	if (format[xi] == 'l')
+		sz = S_LONG;
+	else if (format[xi] == 'h')
+		sz = S_SHORT;
 	if (sz == 0)
-		*i = j - 1;
+		*i = xi - 1;
 	else
-		*i = j;
+		*i = xi;
 	return (sz);
 }

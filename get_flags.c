@@ -1,35 +1,30 @@
 #include "main.h"
 
 /**
- * get_flags - Get the flags for formatting arguments.
- * @format: Format string
- * @i: pointer to parameter
- * Return: Flags
+ * get_flags - this function gets the active flags
+ * @format: formatted to print the arguments
+ * @i: parameter
+ * Return: flags
  */
+
 int get_flags(const char *format, int *i)
 {
-int n_flag, c, j;
-const char C_FLAGS[] = {'-', '+', '0', '#', ' ', '\0'};
-const int AR_FLAGS[] = {
-FLAG_MINUS, FLAG_PLUS, FLAG_ZERO, FLAG_HASH, FLAG_SPACE, 0
-};
+	int flag, n, x;
+	const char FLAG_CH[] = {'-', '+', '0', '#', ' ', '\0'};
+	const int FLAG_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-n_flag = 0;
-for (j = *i + 1; format[j] != '\0'; j++)
-{
-	for (c = 0; C_FLAGS[c] != '\0'; j++)
-{
-	if (format[j] == C_FLAGS[c])
-{
-	n_flag |= AR_FLAGS[c];
-	break;
-}
-}
-		if (C_FLAGS[c] == 0)
+	flag = 0;
+	for (x = *i + 1; format[x] != '\0'; x++)
+	{
+		for (n = 0; FLAG_CH[n] != '\0'; n++)
+			if (FLAG_CH[n] == format[x])
+			{
+				flag |= FLAG_ARR[n];
+				break;
+			}
+		if (FLAG_CH[n] == 0)
 			break;
-}
-
-	*i = j - 1;
-
-	return (n_flag);
+	}
+	*i = x - 1;
+	return (flag);
 }
